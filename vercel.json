@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/pdf/upload",
+      "dest": "/api/pdf/upload.js"
+    },
+    {
+      "src": "/api/pdf/sign",
+      "dest": "/api/pdf/sign.js"
+    },
+    {
+      "src": "/api/pdf/download/(.*)",
+      "dest": "/api/pdf/download/[id].js?id=$1"
+    }
+  ]
+}
