@@ -1,43 +1,7 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
+  "functions": {
+    "api/**/*.js": {
+      "maxDuration": 30
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/pdf/upload",
-      "dest": "/api/pdf/upload.js",
-      "methods": ["POST", "OPTIONS"],
-      "headers": {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type"
-      }
-    },
-    {
-      "src": "/api/pdf/sign",
-      "dest": "/api/pdf/sign.js",
-      "methods": ["POST", "OPTIONS"],
-      "headers": {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type"
-      }
-    },
-    {
-      "src": "/api/pdf/download/([^/]+)",
-      "dest": "/api/pdf/download/[id].js?id=$1",
-      "methods": ["GET", "OPTIONS"],
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      }
-    },
-    {
-      "src": "/api",
-      "dest": "/api/index.js"
-    }
-  ]
+  }
 }
